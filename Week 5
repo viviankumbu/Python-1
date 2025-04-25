@@ -1,0 +1,35 @@
+# Base class
+class Superhero:
+    def __init__(self, name, power, strength):
+        self.name = name
+        self.power = power
+        self.__strength = strength  # private attribute (encapsulation)
+
+    def display_info(self):
+        print(f"{self.name} has the power of {self.power}.")
+
+    def get_strength(self):  # public method to access private attribute
+        return self.__strength
+
+# Subclass (inherits from Superhero)
+class FlyingSuperhero(Superhero):
+    def __init__(self, name, power, strength, flight_speed):
+        super().__init__(name, power, strength)
+        self.flight_speed = flight_speed
+
+    # Overriding display_info() method (polymorphism)
+    def display_info(self):
+        print(f"{self.name} flies at {self.flight_speed} km/h with {self.power} power.")
+
+# Creating objects
+hero1 = Superhero("Iron Blaze", "Fire Manipulation", 90)
+hero2 = FlyingSuperhero("Sky Surge", "Wind Control", 80, 1200)
+
+# Using methods
+hero1.display_info()
+print("Strength:", hero1.get_strength())
+
+print()
+
+hero2.display_info()
+print("Strength:", hero2.get_strength())
